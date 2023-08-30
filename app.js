@@ -1,8 +1,14 @@
 // Importing modules
 const express = require('express');
 const taskRoute = require("./routes/task")
+
 // starting the express app
 const app = express()
+
+// Middlewares
+app.use(express.json())
+app.use(express.static(__dirname+"/public"))
+
 
 // The index page
 app.get("/",(req,res) => {
