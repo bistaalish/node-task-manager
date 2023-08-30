@@ -4,11 +4,15 @@ const taskRoute = require("./routes/task")
 const connectDB = require('./db/connect')
 const notFound = require("./middlewares/not-found")
 const errorHandlerMiddleware = require('./middlewares/error-handler')
-
+// const cors = require('cors');
 require('dotenv').config()
 // starting the express app
 const app = express()
 
+
+// Enabling cors
+// const allowedOrigins = process.env.ALLOWED_ORIGINS.split(",");
+// app.use(cors({ origin: allowedOrigins }));
 
 // Middlewares
 app.use(express.json())
