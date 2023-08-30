@@ -1,14 +1,13 @@
 const express = require('express')
 // import all controllers
+const {createTask,getAllTask} = require('../controllers/tasks')
 // import SessionController from './app/controllers/SessionController';
 
 const routes = express.Router();
 
 // Add routes
 routes.route('/')
-.get((req,res) => {
-   res.send("get all tasks") 
-})
+.get(getAllTask)
 .post((req,res) => {
   res.send("create task")  
 })

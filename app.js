@@ -2,7 +2,8 @@
 const express = require('express');
 const taskRoute = require("./routes/task")
 const connectDB = require('./db/connect')
-
+const notFound = require("./middlewares/not-found")
+const errorHandlerMiddleware = require('./middlewares/error-handler')
 
 require('dotenv').config()
 // starting the express app
@@ -20,6 +21,10 @@ app.get("/",(req,res) => {
 })
 
 app.use("/api/v1/tasks",taskRoute)
+
+
+app.use(notFound)
+app.use(errorHandlerMiddleware)
 
 const port = process.env.PORT || 3000
 //Listen on port set in environment variable or default to 3000
