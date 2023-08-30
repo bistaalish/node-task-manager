@@ -1,6 +1,6 @@
 // Importing modules
 const express = require('express');
-
+const taskRoute = require("./routes/task")
 // starting the express app
 const app = express()
 
@@ -8,6 +8,8 @@ const app = express()
 app.get("/",(req,res) => {
     res.send('Hello')
 })
+
+app.use("/api/v1/tasks",taskRoute)
 
 //Listen on port set in environment variable or default to 3000
 const listener = app.listen(process.env.PORT || 3000, function () {
