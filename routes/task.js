@@ -1,6 +1,6 @@
 const express = require('express')
 // import all controllers
-const {createTask,getAllTask} = require('../controllers/tasks')
+const {createTask,getAllTask,getTask} = require('../controllers/tasks')
 // import SessionController from './app/controllers/SessionController';
 
 const routes = express.Router();
@@ -8,14 +8,10 @@ const routes = express.Router();
 // Add routes
 routes.route('/')
 .get(getAllTask)
-.post((req,res) => {
-  res.send("create task")  
-})
+.post(createTask)
 
 routes.route('/:id')
-.get((req,res) => {
-    res.send("get a task")
-})
+.get(getTask)
 .delete((req,res) => {
     res.send('delete a task')
 })
