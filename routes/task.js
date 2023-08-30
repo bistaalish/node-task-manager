@@ -1,6 +1,6 @@
 const express = require('express')
 // import all controllers
-const {createTask,getAllTask,getTask} = require('../controllers/tasks')
+const {createTask,getAllTask,getTask,deleteTask} = require('../controllers/tasks')
 // import SessionController from './app/controllers/SessionController';
 
 const routes = express.Router();
@@ -12,9 +12,7 @@ routes.route('/')
 
 routes.route('/:id')
 .get(getTask)
-.delete((req,res) => {
-    res.send('delete a task')
-})
+.delete(deleteTask)
 .patch((req,res) => {
    res.send('update a task') 
 })
